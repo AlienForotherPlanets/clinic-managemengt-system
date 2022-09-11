@@ -26,7 +26,7 @@ const getAllpatients = async (req, res, next) => {
 
 const addNewpatients = async (req, res, next) => {
     console.log(req.body);
-    const { title, desc, link, user } = req.body;
+    const { PatientId, Name, MobileNumber, Email, Date, Time, Occupation, Address, Allergy } = req.body;
 
     let existingUser;
 
@@ -42,10 +42,7 @@ const addNewpatients = async (req, res, next) => {
     }
 
     const patient = new patient({
-        title,
-        desc,
-        link,
-        user,
+        PatientId, Name, MobileNumber, Email, Date, Time, Occupation, Address, Allergy
     });
 
     try {
