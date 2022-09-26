@@ -9,6 +9,4 @@ const connection = () => {
         console.log("connected");
     });
 }
-
-
 module.exports = connection
