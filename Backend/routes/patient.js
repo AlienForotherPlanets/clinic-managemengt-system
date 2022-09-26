@@ -3,51 +3,35 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const patientSchema = require("../models/patientSchema");
 
-const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-
 router.post('/AddPatient', async (req, res) => {
-    const patientName = req.body.patientName;
+    const PatientName = req.body.PatientName;
     const Email = req.body.Email;
-    const cardNo = req.body.cardNo;
     const Dob = req.body.Dob;
     const Occupation = req.body.Occupation;
     const BloodGroup = req.body.BloodGroup;
-    const address = req.body.address;
-    const ContactNo = req.body.ContactNo;
+    const address = req.body.Address;
+    const ContactNo = req.body.ContactNumber;
     const Allergy = req.body.Allergy;
 
-    if (patientName == "" || Email == "" || address == "" || ContactNo == "") {
+    if (PatientName == "" || address == "" || ContactNo == "") {
         res.json({ "Status": "enter all the details" });
-    }
-    else if (!regex.test(Password)) {
-        res.json({ "Status": "enter appropriate pass" });
-    }
+    } else {
+        const create_new_patient = await patientSchema({
 
-    else {
-        const exist = await patientSchema.find({ Email });
-
-        if (exist.length != 0) {
-            res.json({ "Status": "email id already exist..please enter different email.." });
-        }
-        else {
-            const create_new_patient = await patientSchema({
-
-                "patientName": patientName,
-                "Email": Email,
-                "cardNo": cardNo,
-                "Dob": Dob,
-                "Occupation": Occupation,
-                "BloodGroup": BloodGroup,
-                "address": address,
-                "ContactNo": ContactNo,
-                "Allergy": Allergy
-            });
+            "PatientName": PatientName,
+            "Email": Email,
+            "Dob": Dob,
+            "Occupation": Occupation,
+            "BloodGroup": BloodGroup,
+            "address": address,
+            "ContactNumber": ContactNo,
+            "Allergy": Allergy
+        });
 
 
 
-            create_new_patient.save();
-            res.json(create_new_patient);
-        }
+        create_new_patient.save();
+        res.json(create_new_patient);
     }
 });
 
@@ -59,7 +43,7 @@ router.get('/FindPatientByName', async (req, res) => {
         res.json({ "Status": "enter all the details" });
     }
     else {
-        const user = await patientSchema.find({ patientName });
+        const user = await patientSchema.find({ PatientName });
         res.send(user);
         if (!user) {
             res.json({ "Status": "user doesn't exist" });

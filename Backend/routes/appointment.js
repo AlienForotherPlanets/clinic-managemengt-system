@@ -49,4 +49,66 @@ router.post("/BookAppointment", async (req, res) => {
 
 });
 
+router.get('/FindAllAppointment', async (req, res) => {
+    const user = await AppointmentDataSchema.find();
+    res.send(user);
+
+    if (!user) {
+        res.json({ "Status": "user doesn't exist" });
+    }
+});
+
+router.get('/FindAppointmentByDateTime', async (req, res) => {
+
+    const Date = req.body.Date;
+    const StartTime = req.body.StartTime;
+    if (Date == "") {
+        res.json({ "Status": "enter DrId" });
+    }
+    else {
+        let pass = {}
+        if (StartTime == undefined) {
+            pass = { Date: Date };
+        } else {
+            pass = { Date: Date, StartTime: StartTime };
+        }
+
+        const user = await AppointmentDataSchema.find(pass);
+        res.send(user);
+
+        if (!user) {
+            res.json({ "Status": "user doesn't exist" });
+        }
+    }
+
+
+});
+
+router.get('/FindAppointmentByDrName', async (req, res) => {
+
+    const DrName = req.body.DrName;
+    const Date = req.body.Date;
+    if (DrName == "") {
+        res.json({ "Status": "enter DrId" });
+    }
+    else {
+        let pass = {}
+        if (Date == undefined) {
+            pass = { DoctorName: DrName };
+        } else {
+            pass = { Date: Date, DoctorName: DrName };
+        }
+
+        const user = await AppointmentDataSchema.find(pass);
+        res.send(user);
+
+        if (!user) {
+            res.json({ "Status": "user doesn't exist" });
+        }
+    }
+
+
+});
+
+
 module.exports = router;

@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const DoctorSchema = new Schema({
-    "DrId": {
-        type: String,
-        required: true
-    },
     "DrName": {
         type: String,
         required: true

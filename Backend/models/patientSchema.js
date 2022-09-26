@@ -10,8 +10,7 @@ const patientSchema = new Schema({
 
   ContactNumber: {
     type: Number,
-    required: true,
-    length: 10
+    required: true
   },
   Dob: {
     type: Date,

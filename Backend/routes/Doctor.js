@@ -17,7 +17,7 @@ router.post('/AddDoctor', async (req, res) => {
     const Saturday = req.body.Saturday;
     const Sunday = req.body.Sunday;
 
-    if (DrId == "" || DrEmail == "" || DrNumber == "") {
+    if (DrName == "" || DrEmail == "" || DrNumber == "") {
         res.json({ "Status": "enter all the details" });
     }
     else {
@@ -52,7 +52,6 @@ router.get('/FindDoctorById', async (req, res) => {
     }
     else {
         const user = await DoctorSchema.findOne({ _id: DrId });
-        // req.json(user);
         res.send(user);
 
         if (!user) {
@@ -78,6 +77,16 @@ router.get('/FindDoctorByName', async (req, res) => {
         if (!user) {
             res.json({ "Status": "user doesn't exist" });
         }
+    }
+
+});
+
+router.get('/FindAllDoctor', async (req, res) => {
+    const user = await DoctorSchema.find();
+    res.send(user);
+
+    if (!user) {
+        res.json({ "Status": "user doesn't exist" });
     }
 
 });
