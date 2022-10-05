@@ -1,0 +1,22 @@
+ <Autocomplete
+              id="input-search-header"
+      open={open}
+      onInputChange={(_, value) => {
+        if (value.length === 0) {
+          if (open) setOpen(false);
+        } else {
+          if (!open) setOpen(true);
+        }
+      }}
+      startAdornment={
+        <InputAdornment position="start">
+            <IconSearch stroke={1.5} size="1rem" color={theme.palette.grey[500]} />
+        </InputAdornment>
+    }
+    aria-describedby="search-helper-text"
+                    inputProps={{ 'aria-label': 'weight' }}
+      onClose={() => setOpen(false)}
+      options={top100Films}
+      sx={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label="Movie" />}
+    />

@@ -3,12 +3,11 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
 
-const Select = (props) => {
-    const { name, label, value,error=null, onChange, options } = props;
+const AvailableSelect = (props) => {
+    const { name, label, value, onChange, options } = props;
   return (
     <TextField
-    {...(error && {error:true,helperText:error})}
-          style={{ width: "100%" }}
+          style={{ width: "50%" }}
           variant="outlined"
           value={value}
           onChange={onChange}
@@ -16,7 +15,7 @@ const Select = (props) => {
           label={label}
           name={name}
           sx={{
-          
+
 
             "& .MuiInputBase-root": {
                 height: "46px"
@@ -33,4 +32,4 @@ const Select = (props) => {
   )
 }
 
-export default Select
+export default AvailableSelect

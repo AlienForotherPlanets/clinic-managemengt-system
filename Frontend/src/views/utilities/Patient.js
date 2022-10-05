@@ -17,8 +17,8 @@ const headCells = [
     {id:'lastname', label:'Last Name',minWidth: 170,},
     {id:'mobno', label:'Mobile No.',minWidth: 170,},
     {id:'email1', label:'Email 1',minWidth: 170,},
-    {id:'email2', label:'Email 2',minWidth: 170,},
     {id:'gender', label:'Gender',minWidth: 80,},
+    {id:'email2', label:'Email 2',minWidth: 170,},
     {id:'dob', label:'DOB',minWidth: 80,},
     {id:'age', label:'Age',minWidth: 50,},
     {id:'action', label:'',minWidth: 80,},
@@ -74,11 +74,10 @@ const Patient = () => {
                                 <TableCell align='center'>{item.lastname}</TableCell>
                                 <TableCell align='center'>{item.mobno}</TableCell>
                                 <TableCell align='center'>{item.email1}</TableCell>
-                                <TableCell align='center'>{item.email2}</TableCell>
                                 <TableCell align='center'>{item.gender}</TableCell>
+                                <TableCell align='center'>{item.email2}</TableCell>
                                 <TableCell align='center'>{item.dob}</TableCell>
                                 <TableCell align='center'>{item.age}</TableCell>  
-                                <TableCell align='center'>{item.continue}</TableCell>
                             </TableRow>
                         ))
                     }

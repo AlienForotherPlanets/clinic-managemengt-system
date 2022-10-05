@@ -11,6 +11,22 @@ const other = {
     type: 'group',
     children: [
         {
+            id: 'availablity',
+            title: 'Availability',
+            type: 'item',
+            url: '/Availability',
+            icon: icons.IconClipboardCheck,
+            breadcrumbs: false
+        },
+        {
+            id: 'services',
+            title: 'Services',
+            type: 'item',
+            url: '/Services',
+            icon: icons.IconClipboardCheck,
+            breadcrumbs: false
+        },
+        {
             id: 'lab-work',
             title: 'Lab Work',
             type: 'item',

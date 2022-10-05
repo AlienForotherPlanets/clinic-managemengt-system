@@ -15,6 +15,10 @@ const UtilsMaterialIcons = Loadable(lazy(() => import('views/utilities/MaterialI
 const UtilsTablerIcons = Loadable(lazy(() => import('views/utilities/TablerIcons')));
 const Schedule = Loadable(lazy(() => import('views/utilities/Schedule')));
 const ViewCalender = Loadable(lazy(() => import('views/utilities/ViewCalender')));
+const Availability = Loadable(lazy(() => import('views/utilities/Availability')));
+const AvailableDisplay = Loadable(lazy(() => import('views/utilities/AvailableDisplay')));
+const ServiceDisplay = Loadable(lazy(() => import('views/utilities/ServiceDisplay')));
+const Services = Loadable(lazy(() => import('views/utilities/Services')));
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
@@ -79,7 +83,7 @@ const MainRoutes = {
             children: [
                 {
                     path: 'tabler-icons',
-                    element: <Schedule />
+                    element: <Availability />
                 }
             ]
         },
@@ -88,19 +92,22 @@ const MainRoutes = {
             children: [
                 {
                     path: 'material-icons',
-                    element: <UtilsMaterialIcons />
+                    element: <ServiceDisplay />
                 }
             ]
         },
-        
+        {
+            path: 'Availability',
+            element: <Availability/>
+        }, {
+            path: 'Services',
+            element: <Services/>
+        },
         {
             path: 'labwork',
-            element: <SamplePage />
+            element: <Services/>
         },
-        {
-            path: 'Communication',
-            element: <SamplePage />
-        },
+       
        
         {
             path: 'report',

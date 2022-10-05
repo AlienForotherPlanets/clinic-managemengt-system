@@ -6,6 +6,7 @@ import { Box } from '@mui/system';
 
 const Time = (props) => {
     const { name, label, value,error=null, onChange, options } = props;
+
   return (
     <TextField
     {...(error && {error:true,helperText:error})}
@@ -24,17 +25,12 @@ const Time = (props) => {
             }
             }}
         >
-          <Box display="flex" flexDirection="row">
-
-   <Box>
-   <MenuItem value="">None</MenuItem>
-   </Box>
+          <MenuItem  value="">None</MenuItem>
                 {
                     options.map(
-                        item => (<Box><MenuItem key={item.id} value={item.id}>{item.price ? item.title+" "+item.price : item.title }</MenuItem></Box>)
+                        item => (<MenuItem key={item.id} value={item.id}>{item.price ? item.title+" "+item.price : item.title }</MenuItem>)
                     )
                 }
-               </Box>
         </TextField>
   )
 }

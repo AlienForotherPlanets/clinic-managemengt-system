@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Button from '@mui/material/Button';
-import { makeStyles } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 
 export default function Buttons(props) {

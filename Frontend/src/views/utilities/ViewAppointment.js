@@ -42,6 +42,7 @@ const ViewAppointment = () => {
                      || x.doctorr.toLowerCase().includes(target.value.toLowerCase())
                      || x.appointmentdate.includes(target.value)
                      || x.mobno.includes(target.value)
+                     || x.times.includes(target.value)
                      )
             }
         })
@@ -72,7 +73,7 @@ const ViewAppointment = () => {
                                 <TableCell align='center'>{item.services}</TableCell>
                                 <TableCell align='center'>{item.doctorr}</TableCell>
                                 <TableCell align='center'>{item.appointmentdate}</TableCell>
-                                <TableCell align='center'>{item.time}</TableCell>
+                                <TableCell align='center'>{item.times}</TableCell>
                             </TableRow>
                         ))
                     }

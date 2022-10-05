@@ -14,6 +14,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal';
+import ViewAppointmentCardAction from 'views/utilities/ViewAppointmentCardAction';
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
   { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
@@ -105,7 +106,7 @@ const SamplePage = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
     return (
-        <MainCard title="Sample Card" secondary={<Button variant="contained" onClick={handleOpen}>Add new Appointment</Button>}
+        <MainCard title="Sample Card" secondary={<ViewAppointmentCardAction/>}
   >
     
         <Paper sx={{ width: '100%' }}>

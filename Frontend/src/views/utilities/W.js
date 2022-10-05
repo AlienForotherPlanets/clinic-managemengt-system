@@ -1,22 +1,18 @@
 import other from 'menu-items/other';
 import React,{useState} from 'react'
 
-export const useForm = (initialFormValues,validateOnChange=false,validate) => {
+export const W = (initialFormValues) => {
     const [values,setValues] = useState(initialFormValues);
-    const [errors,setErrors] = useState({});
-
+    
     const handleInputChange = e => {
         const {name,value}= e.target
         setValues({
             ...values,
             [name]: value
         })
-        // if(validateOnChange )
-        // validate({[name] : value})
+        if(validateOnChange )
+        validate({[name] : value})
 
-    }
-    const handleSwitchChange = e => {
-        
     }
     const resetForm = () => {
         setValues(initialFormValues);
@@ -30,18 +26,4 @@ export const useForm = (initialFormValues,validateOnChange=false,validate) => {
         handleInputChange,
         resetForm
     }
-}
-
-
-
-
-
-export const Form = (props) => {
-
-  const {children,...other}  = props;
-  return (
-    <form autoComplete='off' {...other}>
-        {props.children}
-    </form>
-  )
 }
